@@ -1,0 +1,226 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; background: linear-gradient(to bottom, #000, #1a1a1a); color: #fff; min-height: 100vh; }
+
+/* Navigation */
+.navbar { background: #000; border-bottom: 2px solid #ff6600; padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+.logo { display: flex; align-items: center; gap: 10px; font-size: 1.8rem; font-weight: bold; }
+.logo-icon { width: 40px; height: 40px; background: #ff6600; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.logo span { color: #ff6600; }
+
+.nav-links { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
+.nav-links a { text-decoration: none; color: #fff; cursor: pointer; font-size: 1rem; padding: 0.5rem 1rem; }
+.nav-links a:hover { color: #ff6600; }
+
+.btn-primary { background: #ff6600; padding: 0.7rem 1.5rem; border-radius: 5px; font-weight: bold; border: none; color: #fff; cursor: pointer; }
+.btn-primary:hover { background: #ff8533; }
+
+/* Layout */
+.container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+.hidden { display: none; }
+
+/* Reusable Components */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+.card { background: #2a2a2a; padding: 2rem; border-radius: 10px; border: 2px solid #ff6600; overflow: hidden; }
+.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 2rem; }
+
+/* Home Page */
+.hero { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); align-items: center; gap: 2.5rem; padding: 4rem 2rem; }
+.hero h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+.hero p { font-size: 1.3rem; color: #ccc; margin-bottom: 2rem; }
+
+/* Forms */
+.form-group { margin-bottom: 1.5rem; }
+.form-group input { width: 100%; padding: 1rem; background: #1a1a1a; border: 1px solid #444; border-radius: 5px; color: #fff; font-size: 1rem; }
+.error { color: #ff6600; font-size: 0.85rem; display: none; margin-top: 0.5rem; }
+
+/* BMI Calculator */
+.result-box { margin-top: 2rem; padding: 2rem; background: #1a1a1a; border-radius: 10px; text-align: center; }
+.result-value { font-size: 3rem; color: #ff6600; font-weight: bold; }
+
+/* Nutrition Table */
+table { width: 100%; border-collapse: collapse; }
+th { background: #ff6600; padding: 1rem; text-align: left; }
+td { padding: 1rem; border-bottom: 1px solid #444; }
+
+/* Programs Tabs */
+.tabs { display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+.tab-btn { padding: 1rem 2rem; background: #2a2a2a; border: none; border-radius: 10px; color: #fff; cursor: pointer; font-weight: bold; }
+.tab-btn.active { background: #ff6600; }
+
+/* PROGRAM CARDS */
+#programs .card {
+    width: 320px;
+    min-height: 430px;
+    overflow: hidden;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+#programs .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(255, 102, 0, 0.4);
+    border-color: #ff8533;
+}
+
+#programs .card-img {
+    width: 100%;
+    height: 260px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+#programs .card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+#programs .card:hover .card-img img {
+    transform: scale(1.1);
+}
+
+#programs .card h3,
+#programs .card p,
+#programs .card .badge {
+    padding: 0 1.5rem;
+}
+
+#programs .card h3 {
+    padding-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+#programs .card:hover h3 {
+    color: #ff6600;
+}
+
+#programs .card p {
+    color: #ccc;
+    margin-bottom: 0.5rem;
+}
+
+#programs .card .badge {
+    display: inline-block;
+    margin: 1rem 1.5rem 1.5rem 1.5rem;
+}
+
+.badge { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 5px; font-size: 0.85rem; font-weight: bold; margin-top: 0.5rem; }
+.badge-equipment { background: #ff6600; }
+.badge-bodyweight { background: #00cc66; }
+
+/* Exercise Lists */
+.exercise-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+.exercise-item {
+    background: #1a1a1a;
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.exercise-item:hover {
+    background: #2a2a2a;
+    transform: translateX(10px);
+    border-color: #ff6600;
+}
+
+.exercise-icon {
+    width: 60px;
+    height: 60px;
+    background: #333;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: #ff6600;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.exercise-item:hover .exercise-icon {
+    background: #ff6600;
+    color: #fff;
+    transform: rotate(360deg);
+}
+
+.exercise-item h4 {
+    margin-bottom: 0.3rem;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.exercise-item:hover h4 {
+    color: #ff6600;
+}
+
+/* Body Parts Section Cards */
+#bodypartsTab .card {
+    width: 100%;
+    background: #2b2b2b;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid #ff6600;
+    padding: 2rem;
+}
+
+#bodypartsTab .card:hover {
+    border-color: #ff8533;
+    box-shadow: 0 5px 20px rgba(255, 102, 0, 0.3);
+}
+
+/* Cardio Page Cards */
+#cardio .card {
+    width: 320px;
+    background: #2b2b2b;
+    border-radius: 18px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+#cardio .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(255, 102, 0, 0.4);
+    border-color: #ff8533;
+}
+
+#cardio .program-image {
+    width: 100%;
+    height: 480px;
+    background: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: #ff6600;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+#cardio .program-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+#cardio .card:hover .program-image {
+    background: #ff6600;
+    color: #fff;
+}
+
+#cardio .card:hover .program-image img {
+    transform: scale(1.05);
+}
