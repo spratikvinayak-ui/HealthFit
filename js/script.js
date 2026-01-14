@@ -8,6 +8,9 @@ function toggleAuthMode() {
     const title = document.getElementById('authTitle');
     const switchText = document.getElementById('authSwitchText');
 
+    // ✅ SAFETY CHECK (so it doesn't break if login elements not present)
+    if (!nameField || !title || !switchText) return;
+
     if (authMode === 'signup') {
         nameField.classList.remove('hidden');
         title.textContent = 'Create Account';
@@ -42,8 +45,14 @@ function handleAuth() {
     clearErrors();
 
     const name = document.getElementById('name') ? document.getElementById('name').value : "";
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const emailEl = document.getElementById('email');
+    const passwordEl = document.getElementById('password');
+
+    // ✅ SAFETY CHECK
+    if (!emailEl || !passwordEl) return;
+
+    const email = emailEl.value;
+    const password = passwordEl.value;
 
     let isValid = true;
 
@@ -103,7 +112,7 @@ function loadUser() {
         if (userSection) {
             userSection.innerHTML =
                 '<span style="color: #ff6600;">Hi, ' + user.name + '</span> ' +
-                '<button class="btn-primary" onclick="logout()">Logout</button>';
+                '<button class="btn-primary" style="margin-left:10px;" onclick="logout()">Logout</button>';
         }
 
         const welcomeMessage = document.getElementById('welcomeMessage');
@@ -116,9 +125,15 @@ function loadUser() {
 
 /* BMI COLOR BASED RESULTS */
 function calculateBMI() {
-    const heightCm = parseFloat(document.getElementById('height').value);
+    const heightEl = document.getElementById('height');
+    const weightEl = document.getElementById('weight');
+
+    // ✅ SAFETY CHECK (so it doesn't break on other pages)
+    if (!heightEl || !weightEl) return;
+
+    const heightCm = parseFloat(heightEl.value);
     const heightM = heightCm / 100;
-    const weight = parseFloat(document.getElementById('weight').value);
+    const weight = parseFloat(weightEl.value);
 
     if (!heightM || !weight) {
         alert('Please enter height and weight');
@@ -144,28 +159,57 @@ function calculateBMI() {
         color = '#ff3333';
     }
 
-    document.getElementById('bmiValue').textContent = bmi;
-    document.getElementById('bmiCategory').textContent = category;
+    const bmiValueEl = document.getElementById('bmiValue');
+    const bmiCategoryEl = document.getElementById('bmiCategory');
+    const bmiResultEl = document.getElementById('bmiResult');
 
-    document.getElementById('bmiValue').style.color = color;
-    document.getElementById('bmiCategory').style.color = color;
+    // ✅ SAFETY CHECK
+    if (!bmiValueEl || !bmiCategoryEl || !bmiResultEl) return;
 
-    document.getElementById('bmiResult').classList.remove('hidden');
+    bmiValueEl.textContent = bmi;
+    bmiCategoryEl.textContent = category;
+
+    bmiValueEl.style.color = color;
+    bmiCategoryEl.style.color = color;
+
+    bmiResultEl.classList.remove('hidden');
 }
 
 /* Programs Tab Switching */
 function switchTab(event, tabName) {
+    // ✅ SAFETY CHECK (if programs elements are not present, just return)
+    const equipmentTab = document.getElementById('equipmentTab');
+    const bodyweightTab = document.getElementById('bodyweightTab');
+    const bodypartsTab = document.getElementById('bodypartsTab');
+
+    if (!equipmentTab || !bodyweightTab || !bodypartsTab) return;
+
     const allTabs = document.querySelectorAll('.tab-btn');
     allTabs.forEach(tab => tab.classList.remove('active'));
 
-    event.target.classList.add('active');
+    if (event && event.target) {
+        event.target.classList.add('active');
+    }
 
-    document.getElementById('equipmentTab').classList.add('hidden');
-    document.getElementById('bodyweightTab').classList.add('hidden');
-    document.getElementById('bodypartsTab').classList.add('hidden');
+    equipmentTab.classList.add('hidden');
+    bodyweightTab.classList.add('hidden');
+    bodypartsTab.classList.add('hidden');
 
-    document.getElementById(tabName + 'Tab').classList.remove('hidden');
+    const selectedTab = document.getElementById(tabName + 'Tab');
+    if (selectedTab) selectedTab.classList.remove('hidden');
 }
 
 // Auto run on page load
-document.addEventListener("DOMContentLoaded", loadUser);
+document.addEventListener("DOMContentLoaded", () => {
+    loadUser();
+
+    // ✅ AUTO DEFAULT TAB ONLY IF PROGRAMS PAGE HAS TABS
+    const equipmentTab = document.getElementById('equipmentTab');
+    const firstTabBtn = document.querySelector('.tab-btn');
+
+    if (equipmentTab && firstTabBtn) {
+        // Ensure Equipment tab is shown by default
+        equipmentTab.classList.remove('hidden');
+        firstTabBtn.classList.add('active');
+    }
+});
