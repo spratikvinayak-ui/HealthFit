@@ -1,384 +1,505 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HealthFit - Programs</title>
-  <link rel="stylesheet" href="./style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthFit - Programs</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- NAVIGATION BAR -->
+<!-- NAVBAR -->
 <nav class="navbar">
-  <div class="logo">
-    <div class="logo-icon">HF</div>
-    <div>Health <span>Fitness</span></div>
-  </div>
-
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="programs.html">Programs</a>
-    <a href="bmi.html">BMI</a>
-    <a href="nutrition.html">Nutrition</a>
-    <a href="cardio.html">Cardio</a>
-
-    <div id="userSection">
-      <a class="btn-primary" href="login.html">Login</a>
+    <div class="logo">
+        <div class="logo-icon">HF</div>
+        <div>Health <span>Fitness</span></div>
     </div>
-  </div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="programs.html">Programs</a>
+        <a href="bmi.html">BMI</a>
+        <a href="nutrition.html">Nutrition</a>
+        <a href="cardio.html">Cardio</a>
+        <div id="userSection">
+            <a class="btn-primary" href="login.html">Login</a>
+        </div>
+    </div>
 </nav>
 
 <!-- PROGRAMS PAGE -->
 <div id="programs">
-  <div class="container">
-    <h2 class="section-title">Fitness <span style="color:#ff6600;">Programs</span></h2>
+    <div class="container">
+        <h2 class="section-title">Fitness <span>Programs</span></h2>
 
-    <!-- Tabs -->
-    <div class="tabs">
-      <button class="tab-btn active" onclick="switchTab(event,'equipment')">Equipment Based</button>
-      <button class="tab-btn" onclick="switchTab(event,'bodyweight')">Bodyweight</button>
-      <button class="tab-btn" onclick="switchTab(event,'bodyparts')">Body Parts</button>
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(event,'equipment')">Equipment Based</button>
+            <button class="tab-btn" onclick="switchTab(event,'bodyweight')">Bodyweight</button>
+            <button class="tab-btn" onclick="switchTab(event,'bodyparts')">Body Parts</button>
+        </div>
+
+        <!-- Equipment Tab -->
+        <div id="equipmentTab">
+            <div class="grid">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="images/Db-Press.jpeg" alt="Chest Workout">
+                    </div>
+                    <h3>Chest Workout</h3>
+                    <p>Build strength and muscle</p>
+                    <p>4 sets × 10 reps</p>
+                    <span class="badge badge-equipment">Equipment</span>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="images/Bb-Squat.jpeg" alt="Barbell Squat">
+                    </div>
+                    <h3>Barbell Squat</h3>
+                    <p>Build strength and muscle</p>
+                    <p>4 sets × 8 reps</p>
+                    <span class="badge badge-equipment">Equipment</span>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="images/Cr-Rows.jpeg" alt="Cable Rows">
+                    </div>
+                    <h3>Cable Rows</h3>
+                    <p>Build strength and muscle</p>
+                    <p>3 sets × 12 reps</p>
+                    <span class="badge badge-equipment">Equipment</span>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="images/Lp-Press.jpeg" alt="Leg Press">
+                    </div>
+                    <h3>Leg Press</h3>
+                    <p>Build strength and muscle</p>
+                    <p>4 sets × 12 reps</p>
+                    <span class="badge badge-equipment">Equipment</span>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="images/Lat-Pull.jpeg" alt="Lat Pulldown">
+                    </div>
+                    <h3>Lat Pull Down</h3>
+                    <p>Build strength and muscle</p>
+                    <p>3 sets × 12 reps</p>
+                    <span class="badge badge-equipment">Equipment</span>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="images/Sp-Press.jpeg" alt="Shoulder Press">
+                    </div>
+                    <h3>Shoulder Press</h3>
+                    <p>Build strength and muscle</p>
+                    <p>4 sets × 10 reps</p>
+                    <span class="badge badge-equipment">Equipment</span>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="images/Bc-Curls.jpeg" alt="Bicep Curls">
+                    </div>
+                    <h3>Bicep Curls</h3>
+                    <p>Build strength and muscle</p>
+                    <p>3 sets × 12 reps</p>
+                    <span class="badge badge-equipment">Equipment</span>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="images/Te-Extension.jpeg" alt="Tricep Extension">
+                    </div>
+                    <h3>Tricep Extension</h3>
+                    <p>Build strength and muscle</p>
+                    <p>3 sets × 12 reps</p>
+                    <span class="badge badge-equipment">Equipment</span>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="images/Lc-Curls.jpeg" alt="Leg Curls">
+                    </div>
+                    <h3>Leg Curls</h3>
+                    <p>Build strength and muscle</p>
+                    <p>3 sets × 15 reps</p>
+                    <span class="badge badge-equipment">Equipment</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bodyweight Tab -->
+        <div id="bodyweightTab" class="hidden">
+            <div class="grid">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="images/Pu-Ups.jpeg" alt="Push Ups">
+                    </div>
+                    <h3>Push Ups</h3>
+                    <p>3 sets × 15 reps</p>
+                    <span class="badge badge-bodyweight">No Equipment</span>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="images/Pl-Ups.jpeg" alt="Pull Ups">
+                    </div>
+                    <h3>Pull Ups</h3>
+                    <p>3 sets × 8 reps</p>
+                    <span class="badge badge-bodyweight">No Equipment</span>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="images/Squats-Sits.jpeg" alt="Bodyweight Squat">
+                    </div>
+                    <h3>Bodyweight Squat</h3>
+                    <p>4 sets × 12 reps</p>
+                    <span class="badge badge-bodyweight">No Equipment</span>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="images/Planks-Hold.jpeg" alt="Planks">
+                    </div>
+                    <h3>Planks</h3>
+                    <p>3 sets × 45 sec</p>
+                    <span class="badge badge-bodyweight">No Equipment</span>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="images/Td-Push.jpeg" alt="Tricep Dips">
+                    </div>
+                    <h3>Tricep Dips</h3>
+                    <p>3 sets × 12 reps</p>
+                    <span class="badge badge-bodyweight">No Equipment</span>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="images/Lu-Legs.jpeg" alt="Lunges">
+                    </div>
+                    <h3>Lunges</h3>
+                    <p>3 sets × 12 reps</p>
+                    <span class="badge badge-bodyweight">No Equipment</span>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="images/Co-Still.jpeg" alt="Core">
+                    </div>
+                    <h3>Core</h3>
+                    <p>3 sets × 15 reps</p>
+                    <span class="badge badge-bodyweight">No Equipment</span>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="images/Lr-Ups.jpeg" alt="Leg Raises">
+                    </div>
+                    <h3>Leg Raises</h3>
+                    <p>3 sets × 12 reps</p>
+                    <span class="badge badge-bodyweight">No Equipment</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Body Parts Tab -->
+        <div id="bodypartsTab" class="hidden">
+
+            <!-- Chest -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3 style="color: #ff6600; margin-bottom: 1.5rem;">Chest Workout</h3>
+                <div class="exercise-list">
+                    <div class="exercise-item">
+                        <div class="exercise-icon">BP</div>
+                        <div>
+                            <h4>Bench Press</h4>
+                            <p>4 sets × 8 reps</p>
+                            <span class="badge badge-equipment">Equipment</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">PU</div>
+                        <div>
+                            <h4>Push-ups</h4>
+                            <p>3 sets × 15 reps</p>
+                            <span class="badge badge-bodyweight">Bodyweight</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">IF</div>
+                        <div>
+                            <h4>Incline Flyes</h4>
+                            <p>3 sets × 12 reps</p>
+                            <span class="badge badge-equipment">Equipment</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">DP</div>
+                        <div>
+                            <h4>Dumbbell Press</h4>
+                            <p>4 sets × 10 reps</p>
+                            <span class="badge badge-equipment">Equipment</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">CC</div>
+                        <div>
+                            <h4>Cable Crossover</h4>
+                            <p>3 sets × 12 reps</p>
+                            <span class="badge badge-equipment">Equipment</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">DI</div>
+                        <div>
+                            <h4>Chest Dips</h4>
+                            <p>3 sets × 10 reps</p>
+                            <span class="badge badge-bodyweight">Bodyweight</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">PP</div>
+                        <div>
+                            <h4>Pec Deck</h4>
+                            <p>3 sets × 15 reps</p>
+                            <span class="badge badge-equipment">Equipment</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3 style="color: #ff6600; margin-bottom: 1.5rem;">Back Workout</h3>
+                <div class="exercise-list">
+                    <div class="exercise-item">
+                        <div class="exercise-icon">DL</div>
+                        <div>
+                            <h4>Deadlift</h4>
+                            <p>4 sets × 6 reps</p>
+                            <span class="badge badge-equipment">Equipment</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">PU</div>
+                        <div>
+                            <h4>Pull-ups</h4>
+                            <p>3 sets × 8 reps</p>
+                            <span class="badge badge-bodyweight">Bodyweight</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">BR</div>
+                        <div>
+                            <h4>Barbell Rows</h4>
+                            <p>4 sets × 10 reps</p>
+                            <span class="badge badge-equipment">Equipment</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">LP</div>
+                        <div>
+                            <h4>Lat Pulldown</h4>
+                            <p>3 sets × 12 reps</p>
+                            <span class="badge badge-equipment">Equipment</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">CR</div>
+                        <div>
+                            <h4>Cable Rows</h4>
+                            <p>3 sets × 12 reps</p>
+                            <span class="badge badge-equipment">Equipment</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">FS</div>
+                        <div>
+                            <h4>Face Pulls</h4>
+                            <p>3 sets × 15 reps</p>
+                            <span class="badge badge-equipment">Equipment</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">TY</div>
+                        <div>
+                            <h4>T-Bar Rows</h4>
+                            <p>4 sets × 8 reps</p>
+                            <span class="badge badge-equipment">Equipment</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legs -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3 style="color: #ff6600; margin-bottom: 1.5rem;">Legs Workout</h3>
+                <div class="exercise-list">
+                    <div class="exercise-item">
+                        <div class="exercise-icon">SQ</div>
+                        <div>
+                            <h4>Squats</h4>
+                            <p>4 sets × 8 reps</p>
+                            <span class="badge badge-equipment">Equipment</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">LG</div>
+                        <div>
+                            <h4>Lunges</h4>
+                            <p>3 sets × 12 reps</p>
+                            <span class="badge badge-bodyweight">Bodyweight</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">LP</div>
+                        <div>
+                            <h4>Leg Press</h4>
+                            <p>4 sets × 12 reps</p>
+                            <span class="badge badge-equipment">Equipment</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">LC</div>
+                        <div>
+                            <h4>Leg Curls</h4>
+                            <p>3 sets × 15 reps</p>
+                            <span class="badge badge-equipment">Equipment</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">LE</div>
+                        <div>
+                            <h4>Leg Extensions</h4>
+                            <p>3 sets × 15 reps</p>
+                            <span class="badge badge-equipment">Equipment</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">CR</div>
+                        <div>
+                            <h4>Calf Raises</h4>
+                            <p>4 sets × 20 reps</p>
+                            <span class="badge badge-bodyweight">Bodyweight</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">RD</div>
+                        <div>
+                            <h4>Romanian Deadlift</h4>
+                            <p>3 sets × 10 reps</p>
+                            <span class="badge badge-equipment">Equipment</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Arms -->
+            <div class="card" style="margin-bottom: 2rem;">
+                <h3 style="color: #ff6600; margin-bottom: 1.5rem;">Arms Workout</h3>
+                <div class="exercise-list">
+                    <div class="exercise-item">
+                        <div class="exercise-icon">BC</div>
+                        <div>
+                            <h4>Barbell Curls</h4>
+                            <p>4 sets × 10 reps</p>
+                            <span class="badge badge-equipment">Equipment</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">TD</div>
+                        <div>
+                            <h4>Tricep Dips</h4>
+                            <p>3 sets × 12 reps</p>
+                            <span class="badge badge-bodyweight">Bodyweight</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">HC</div>
+                        <div>
+                            <h4>Hammer Curls</h4>
+                            <p>3 sets × 12 reps</p>
+                            <span class="badge badge-equipment">Equipment</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">TE</div>
+                        <div>
+                            <h4>Tricep Extensions</h4>
+                            <p>3 sets × 15 reps</p>
+                            <span class="badge badge-equipment">Equipment</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">CC</div>
+                        <div>
+                            <h4>Concentration Curls</h4>
+                            <p>3 sets × 10 reps</p>
+                            <span class="badge badge-equipment">Equipment</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shoulders -->
+            <div class="card">
+                <h3 style="color: #ff6600; margin-bottom: 1.5rem;">Shoulders Workout</h3>
+                <div class="exercise-list">
+                    <div class="exercise-item">
+                        <div class="exercise-icon">OP</div>
+                        <div>
+                            <h4>Overhead Press</h4>
+                            <p>4 sets × 8 reps</p>
+                            <span class="badge badge-equipment">Equipment</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">LR</div>
+                        <div>
+                            <h4>Lateral Raises</h4>
+                            <p>3 sets × 15 reps</p>
+                            <span class="badge badge-equipment">Equipment</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">FR</div>
+                        <div>
+                            <h4>Front Raises</h4>
+                            <p>3 sets × 12 reps</p>
+                            <span class="badge badge-equipment">Equipment</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">RD</div>
+                        <div>
+                            <h4>Rear Delt Flyes</h4>
+                            <p>3 sets × 15 reps</p>
+                            <span class="badge badge-equipment">Equipment</span>
+                        </div>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-icon">SH</div>
+                        <div>
+                            <h4>Shrugs</h4>
+                            <p>4 sets × 12 reps</p>
+                            <span class="badge badge-equipment">Equipment</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-
-    <!-- Equipment Tab -->
-    <div id="equipmentTab">
-      <div class="grid">
-
-        <div class="card">
-          <div class="card-img">
-            <img src="images/Db-Press.jpeg" alt="Chest Workout">
-          </div>
-          <h3>Chest Workout</h3>
-          <p>4 sets × 10 reps</p>
-          <span class="badge badge-equipment">Equipment</span>
-        </div>
-
-        <div class="card">
-          <div class="card-img">
-            <img src="images/Bb-Squat.jpeg" alt="Barbell Squat">
-          </div>
-          <h3>Barbell Squat</h3>
-          <p>4 sets × 8 reps</p>
-          <span class="badge badge-equipment">Equipment</span>
-        </div>
-
-        <div class="card">
-          <div class="card-img">
-            <img src="images/Cr-Rows.jpeg" alt="Cable Rows">
-          </div>
-          <h3>Cable Rows</h3>
-          <p>3 sets × 12 reps</p>
-          <span class="badge badge-equipment">Equipment</span>
-        </div>
-
-        <div class="card">
-          <div class="card-img">
-            <img src="images/Lp-Press.jpeg" alt="Leg Press">
-          </div>
-          <h3>Leg Press</h3>
-          <p>4 sets × 12 reps</p>
-          <span class="badge badge-equipment">Equipment</span>
-        </div>
-
-        <div class="card">
-          <div class="card-img">
-            <img src="images/Lat-Pull.jpeg" alt="Lat Pulldown">
-          </div>
-          <h3>Lat Pull Down</h3>
-          <p>3 sets × 12 reps</p>
-          <span class="badge badge-equipment">Equipment</span>
-        </div>
-
-        <div class="card">
-          <div class="card-img">
-            <img src="images/Sp-Press.jpeg" alt="Shoulder Press">
-          </div>
-          <h3>Shoulder Press</h3>
-          <p>4 sets × 10 reps</p>
-          <span class="badge badge-equipment">Equipment</span>
-        </div>
-
-        <div class="card">
-          <div class="card-img">
-            <img src="images/Bc-Curls.jpeg" alt="Bicep Curls">
-          </div>
-          <h3>Bicep Curls</h3>
-          <p>3 sets × 12 reps</p>
-          <span class="badge badge-equipment">Equipment</span>
-        </div>
-
-        <div class="card">
-          <div class="card-img">
-            <img src="images/Te-Extension.jpeg" alt="Tricep Extension">
-          </div>
-          <h3>Tricep Extension</h3>
-          <p>3 sets × 12 reps</p>
-          <span class="badge badge-equipment">Equipment</span>
-        </div>
-
-        <div class="card">
-          <div class="card-img">
-            <img src="images/Lc-Curls.jpeg" alt="Leg Curls">
-          </div>
-          <h3>Leg Curls</h3>
-          <p>3 sets × 15 reps</p>
-          <span class="badge badge-equipment">Equipment</span>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Bodyweight Tab -->
-    <div id="bodyweightTab" class="hidden">
-      <div class="grid">
-
-        <div class="card">
-          <div class="card-img">
-            <img src="images/Pu-Ups.jpeg" alt="Push Ups">
-          </div>
-          <h3>Push Ups</h3>
-          <p>3 sets × 15 reps</p>
-          <span class="badge badge-bodyweight">No Equipment</span>
-        </div>
-
-        <div class="card">
-          <div class="card-img">
-            <img src="images/Pl-Ups.jpeg" alt="Pull Ups">
-          </div>
-          <h3>Pull Ups</h3>
-          <p>3 sets × 8 reps</p>
-          <span class="badge badge-bodyweight">No Equipment</span>
-        </div>
-
-        <div class="card">
-          <div class="card-img">
-            <img src="images/Squats-Sits.jpeg" alt="Bodyweight Squat">
-          </div>
-          <h3>Bodyweight Squat</h3>
-          <p>4 sets × 12 reps</p>
-          <span class="badge badge-bodyweight">No Equipment</span>
-        </div>
-
-        <div class="card">
-          <div class="card-img">
-            <img src="images/Planks-Hold.jpeg" alt="Planks">
-          </div>
-          <h3>Planks</h3>
-          <p>3 sets × 45 sec</p>
-          <span class="badge badge-bodyweight">No Equipment</span>
-        </div>
-
-        <div class="card">
-          <div class="card-img">
-            <img src="images/Td-Push.jpeg" alt="Tricep Dips">
-          </div>
-          <h3>Tricep Dips</h3>
-          <p>3 sets × 12 reps</p>
-          <span class="badge badge-bodyweight">No Equipment</span>
-        </div>
-
-        <div class="card">
-          <div class="card-img">
-            <img src="images/Lu-Legs.jpeg" alt="Lunges">
-          </div>
-          <h3>Lunges</h3>
-          <p>3 sets × 12 reps</p>
-          <span class="badge badge-bodyweight">No Equipment</span>
-        </div>
-
-        <div class="card">
-          <div class="card-img">
-            <img src="images/Co-Still.jpeg" alt="Core">
-          </div>
-          <h3>Core</h3>
-          <p>3 sets × 20 reps</p>
-          <span class="badge badge-bodyweight">No Equipment</span>
-        </div>
-
-        <div class="card">
-          <div class="card-img">
-            <img src="images/Lr-Ups.jpeg" alt="Leg Raises">
-          </div>
-          <h3>Leg Raises</h3>
-          <p>3 sets × 15 reps</p>
-          <span class="badge badge-bodyweight">No Equipment</span>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Body Parts Tab -->
-    <div id="bodypartsTab" class="hidden">
-
-      <div class="card" style="margin-bottom:2rem;">
-        <h3 style="color:#ff6600; margin-bottom:1.5rem;">Chest Workout</h3>
-        <div class="exercise-list">
-          <div class="exercise-item">
-            <div class="exercise-icon">BP</div>
-            <div>
-              <h4>Bench Press</h4>
-              <p>4 sets × 8 reps</p>
-              <span class="badge badge-equipment">Equipment</span>
-            </div>
-          </div>
-
-          <div class="exercise-item">
-            <div class="exercise-icon">PU</div>
-            <div>
-              <h4>Push-ups</h4>
-              <p>3 sets × 15 reps</p>
-              <span class="badge badge-bodyweight">Bodyweight</span>
-            </div>
-          </div>
-
-          <div class="exercise-item">
-            <div class="exercise-icon">IF</div>
-            <div>
-              <h4>Incline Flyes</h4>
-              <p>3 sets × 12 reps</p>
-              <span class="badge badge-equipment">Equipment</span>
-            </div>
-          </div>
-
-          <div class="exercise-item">
-            <div class="exercise-icon">DP</div>
-            <div>
-              <h4>Dumbbell Press</h4>
-              <p>4 sets × 10 reps</p>
-              <span class="badge badge-equipment">Equipment</span>
-            </div>
-          </div>
-
-          <div class="exercise-item">
-            <div class="exercise-icon">CC</div>
-            <div>
-              <h4>Cable Crossover</h4>
-              <p>3 sets × 12 reps</p>
-              <span class="badge badge-equipment">Equipment</span>
-            </div>
-          </div>
-
-          <div class="exercise-item">
-            <div class="exercise-icon">DI</div>
-            <div>
-              <h4>Chest Dips</h4>
-              <p>3 sets × 10 reps</p>
-              <span class="badge badge-bodyweight">Bodyweight</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card" style="margin-bottom:2rem;">
-        <h3 style="color:#ff6600; margin-bottom:1.5rem;">Back Workout</h3>
-        <div class="exercise-list">
-          <div class="exercise-item">
-            <div class="exercise-icon">DL</div>
-            <div>
-              <h4>Deadlift</h4>
-              <p>4 sets × 6 reps</p>
-              <span class="badge badge-equipment">Equipment</span>
-            </div>
-          </div>
-
-          <div class="exercise-item">
-            <div class="exercise-icon">PU</div>
-            <div>
-              <h4>Pull-ups</h4>
-              <p>3 sets × 8 reps</p>
-              <span class="badge badge-bodyweight">Bodyweight</span>
-            </div>
-          </div>
-
-          <div class="exercise-item">
-            <div class="exercise-icon">BR</div>
-            <div>
-              <h4>Barbell Rows</h4>
-              <p>4 sets × 10 reps</p>
-              <span class="badge badge-equipment">Equipment</span>
-            </div>
-          </div>
-
-          <div class="exercise-item">
-            <div class="exercise-icon">LP</div>
-            <div>
-              <h4>Lat Pulldown</h4>
-              <p>3 sets × 12 reps</p>
-              <span class="badge badge-equipment">Equipment</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card" style="margin-bottom:2rem;">
-        <h3 style="color:#ff6600; margin-bottom:1.5rem;">Legs Workout</h3>
-        <div class="exercise-list">
-          <div class="exercise-item">
-            <div class="exercise-icon">SQ</div>
-            <div>
-              <h4>Squats</h4>
-              <p>4 sets × 8 reps</p>
-              <span class="badge badge-equipment">Equipment</span>
-            </div>
-          </div>
-
-          <div class="exercise-item">
-            <div class="exercise-icon">LG</div>
-            <div>
-              <h4>Lunges</h4>
-              <p>3 sets × 12 reps</p>
-              <span class="badge badge-bodyweight">Bodyweight</span>
-            </div>
-          </div>
-
-          <div class="exercise-item">
-            <div class="exercise-icon">LP</div>
-            <div>
-              <h4>Leg Press</h4>
-              <p>4 sets × 12 reps</p>
-              <span class="badge badge-equipment">Equipment</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3 style="color:#ff6600; margin-bottom:1.5rem;">Arms Workout</h3>
-        <div class="exercise-list">
-          <div class="exercise-item">
-            <div class="exercise-icon">BC</div>
-            <div>
-              <h4>Barbell Curls</h4>
-              <p>4 sets × 10 reps</p>
-              <span class="badge badge-equipment">Equipment</span>
-            </div>
-          </div>
-
-          <div class="exercise-item">
-            <div class="exercise-icon">TD</div>
-            <div>
-              <h4>Tricep Dips</h4>
-              <p>3 sets × 12 reps</p>
-              <span class="badge badge-bodyweight">Bodyweight</span>
-            </div>
-          </div>
-
-          <div class="exercise-item">
-            <div class="exercise-icon">TE</div>
-            <div>
-              <h4>Tricep Extensions</h4>
-              <p>3 sets × 15 reps</p>
-              <span class="badge badge-equipment">Equipment</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
 </div>
 
-<script src="./script.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
