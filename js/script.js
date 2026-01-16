@@ -1,7 +1,6 @@
 let user = null;
 let authMode = 'login';
 
-/* Toggle Login / Signup */
 function toggleAuthMode() {
     authMode = authMode === 'login' ? 'signup' : 'login';
 
@@ -10,141 +9,106 @@ function toggleAuthMode() {
     const switchText = document.getElementById('authSwitchText');
 
     if (authMode === 'signup') {
-        if (nameField) nameField.classList.remove('hidden');
-        if (title) title.textContent = 'Create Account';
-        if (switchText) switchText.textContent = 'Already have an account?';
+        nameField.classList.remove('hidden');
+        title.textContent = 'Create Account';
+        switchText.textContent = 'Already have an account?';
     } else {
-        if (nameField) nameField.classList.add('hidden');
-        if (title) title.textContent = 'Login';
-        if (switchText) switchText.textContent = 'Need an account?';
+        nameField.classList.add('hidden');
+        title.textContent = 'Login';
+        switchText.textContent = 'Need an account?';
     }
 
     clearErrors();
 }
 
-/* Clear Form Errors */
 function clearErrors() {
-    const nameError = document.getElementById('nameError');
-    const emailError = document.getElementById('emailError');
-    const passwordError = document.getElementById('passwordError');
-
-    if (nameError) nameError.style.display = 'none';
-    if (emailError) emailError.style.display = 'none';
-    if (passwordError) passwordError.style.display = 'none';
+    if (document.getElementById('nameError')) document.getElementById('nameError').style.display = 'none';
+    if (document.getElementById('emailError')) document.getElementById('emailError').style.display = 'none';
+    if (document.getElementById('passwordError')) document.getElementById('passwordError').style.display = 'none';
 }
 
-/* Validate Email */
 function validateEmail(email) {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(email);
 }
 
-/* Validate Password */
 function validatePassword(password) {
     const hasSpecialChar = /[!@#$%^&*]/.test(password);
     const isLongEnough = password.length >= 8;
     return hasSpecialChar && isLongEnough;
 }
 
-/* Login / Signup Handler */
 function handleAuth() {
     clearErrors();
 
-    const nameInput = document.getElementById('name');
-    const emailInput = document.getElementById('email');
-    const passwordInput = document.getElementById('password');
-
-    const name = nameInput ? nameInput.value : "";
-    const email = emailInput ? emailInput.value : "";
-    const password = passwordInput ? passwordInput.value : "";
+    const name = document.getElementById('name') ? document.getElementById('name').value : "";
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
     let isValid = true;
 
-    // Signup name validation
     if (authMode === 'signup' && !name.trim()) {
-        const nameError = document.getElementById('nameError');
-        if (nameError) {
-            nameError.textContent = 'Please enter your full name';
-            nameError.style.display = 'block';
-        }
+        document.getElementById('nameError').textContent = 'Please enter your full name';
+        document.getElementById('nameError').style.display = 'block';
         isValid = false;
     }
 
-    // Email validation
     if (!email.trim()) {
-        const emailError = document.getElementById('emailError');
-        if (emailError) {
-            emailError.textContent = 'Please enter your email';
-            emailError.style.display = 'block';
-        }
+        document.getElementById('emailError').textContent = 'Please enter your email';
+        document.getElementById('emailError').style.display = 'block';
         isValid = false;
     } else if (!validateEmail(email)) {
-        const emailError = document.getElementById('emailError');
-        if (emailError) {
-            emailError.textContent = 'Please enter a valid email address';
-            emailError.style.display = 'block';
-        }
+        document.getElementById('emailError').textContent = 'Please enter a valid email address';
+        document.getElementById('emailError').style.display = 'block';
         isValid = false;
     }
 
-    // Password validation
     if (!password) {
-        const passwordError = document.getElementById('passwordError');
-        if (passwordError) {
-            passwordError.textContent = 'Please enter your password';
-            passwordError.style.display = 'block';
-        }
+        document.getElementById('passwordError').textContent = 'Please enter your password';
+        document.getElementById('passwordError').style.display = 'block';
         isValid = false;
     } else if (!validatePassword(password)) {
-        const passwordError = document.getElementById('passwordError');
-        if (passwordError) {
-            passwordError.textContent =
-                'Password must be at least 8 characters with one special character (!@#$%^&*)';
-            passwordError.style.display = 'block';
-        }
+        document.getElementById('passwordError').textContent = 'Password must be at least 8 characters with one special character (!@#$%^&*)';
+        document.getElementById('passwordError').style.display = 'block';
         isValid = false;
     }
 
     if (!isValid) return;
 
-    // Create user object
     if (authMode === 'signup') {
         user = { name: name, email: email };
     } else {
         user = { name: email.split('@')[0], email: email };
     }
 
-    // Save user in localStorage
+    // Save user in localStorage (so it works across pages)
     localStorage.setItem("healthfitUser", JSON.stringify(user));
 
-    // Redirect to home
     window.location.href = "index.html";
 }
 
-/* Logout */
 function logout() {
     user = null;
     localStorage.removeItem("healthfitUser");
     window.location.href = "index.html";
 }
 
-/* Load user on every page */
+// Load user if already logged in
 function loadUser() {
     const saved = localStorage.getItem("healthfitUser");
-
     if (saved) {
         user = JSON.parse(saved);
 
         const userSection = document.getElementById('userSection');
         if (userSection) {
             userSection.innerHTML =
-                `<span style="color: #ff6600; font-weight:bold;">Hi, ${user.name}</span>
-                 <button class="btn-primary" style="margin-left:10px;" onclick="logout()">Logout</button>`;
+                '<span style="color: #ff6600;">Hi, ' + user.name + '</span> ' +
+                '<button class="btn-primary" onclick="logout()">Logout</button>';
         }
 
         const welcomeMessage = document.getElementById('welcomeMessage');
         if (welcomeMessage) {
-            welcomeMessage.textContent = `Welcome back, ${user.name}!`;
+            welcomeMessage.textContent = 'Welcome back, ' + user.name + '!';
             welcomeMessage.style.display = 'block';
         }
     }
@@ -152,14 +116,9 @@ function loadUser() {
 
 /* BMI COLOR BASED RESULTS */
 function calculateBMI() {
-    const heightInput = document.getElementById('height');
-    const weightInput = document.getElementById('weight');
-
-    if (!heightInput || !weightInput) return;
-
-    const heightCm = parseFloat(heightInput.value);
+    const heightCm = parseFloat(document.getElementById('height').value);
     const heightM = heightCm / 100;
-    const weight = parseFloat(weightInput.value);
+    const weight = parseFloat(document.getElementById('weight').value);
 
     if (!heightM || !weight) {
         alert('Please enter height and weight');
@@ -185,21 +144,13 @@ function calculateBMI() {
         color = '#ff3333';
     }
 
-    const bmiValue = document.getElementById('bmiValue');
-    const bmiCategory = document.getElementById('bmiCategory');
-    const bmiResult = document.getElementById('bmiResult');
+    document.getElementById('bmiValue').textContent = bmi;
+    document.getElementById('bmiCategory').textContent = category;
 
-    if (bmiValue) {
-        bmiValue.textContent = bmi;
-        bmiValue.style.color = color;
-    }
+    document.getElementById('bmiValue').style.color = color;
+    document.getElementById('bmiCategory').style.color = color;
 
-    if (bmiCategory) {
-        bmiCategory.textContent = category;
-        bmiCategory.style.color = color;
-    }
-
-    if (bmiResult) bmiResult.classList.remove('hidden');
+    document.getElementById('bmiResult').classList.remove('hidden');
 }
 
 /* Programs Tab Switching */
@@ -207,19 +158,14 @@ function switchTab(event, tabName) {
     const allTabs = document.querySelectorAll('.tab-btn');
     allTabs.forEach(tab => tab.classList.remove('active'));
 
-    if (event && event.target) event.target.classList.add('active');
+    event.target.classList.add('active');
 
-    const equipmentTab = document.getElementById('equipmentTab');
-    const bodyweightTab = document.getElementById('bodyweightTab');
-    const bodypartsTab = document.getElementById('bodypartsTab');
+    document.getElementById('equipmentTab').classList.add('hidden');
+    document.getElementById('bodyweightTab').classList.add('hidden');
+    document.getElementById('bodypartsTab').classList.add('hidden');
 
-    if (equipmentTab) equipmentTab.classList.add('hidden');
-    if (bodyweightTab) bodyweightTab.classList.add('hidden');
-    if (bodypartsTab) bodypartsTab.classList.add('hidden');
-
-    const activeTab = document.getElementById(tabName + 'Tab');
-    if (activeTab) activeTab.classList.remove('hidden');
+    document.getElementById(tabName + 'Tab').classList.remove('hidden');
 }
 
-/* Auto run on page load */
+// Auto run on page load
 document.addEventListener("DOMContentLoaded", loadUser);
