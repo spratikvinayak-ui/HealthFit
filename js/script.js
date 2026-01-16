@@ -1,6 +1,7 @@
 let user = null;
 let authMode = 'login';
 
+/* Toggle Login / Signup */
 function toggleAuthMode() {
     authMode = authMode === 'login' ? 'signup' : 'login';
 
@@ -8,116 +9,142 @@ function toggleAuthMode() {
     const title = document.getElementById('authTitle');
     const switchText = document.getElementById('authSwitchText');
 
-    // ✅ SAFETY CHECK (so it doesn't break if login elements not present)
-    if (!nameField || !title || !switchText) return;
-
     if (authMode === 'signup') {
-        nameField.classList.remove('hidden');
-        title.textContent = 'Create Account';
-        switchText.textContent = 'Already have an account?';
+        if (nameField) nameField.classList.remove('hidden');
+        if (title) title.textContent = 'Create Account';
+        if (switchText) switchText.textContent = 'Already have an account?';
     } else {
-        nameField.classList.add('hidden');
-        title.textContent = 'Login';
-        switchText.textContent = 'Need an account?';
+        if (nameField) nameField.classList.add('hidden');
+        if (title) title.textContent = 'Login';
+        if (switchText) switchText.textContent = 'Need an account?';
     }
 
     clearErrors();
 }
 
+/* Clear Form Errors */
 function clearErrors() {
-    if (document.getElementById('nameError')) document.getElementById('nameError').style.display = 'none';
-    if (document.getElementById('emailError')) document.getElementById('emailError').style.display = 'none';
-    if (document.getElementById('passwordError')) document.getElementById('passwordError').style.display = 'none';
+    const nameError = document.getElementById('nameError');
+    const emailError = document.getElementById('emailError');
+    const passwordError = document.getElementById('passwordError');
+
+    if (nameError) nameError.style.display = 'none';
+    if (emailError) emailError.style.display = 'none';
+    if (passwordError) passwordError.style.display = 'none';
 }
 
+/* Validate Email */
 function validateEmail(email) {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(email);
 }
 
+/* Validate Password */
 function validatePassword(password) {
     const hasSpecialChar = /[!@#$%^&*]/.test(password);
     const isLongEnough = password.length >= 8;
     return hasSpecialChar && isLongEnough;
 }
 
+/* Login / Signup Handler */
 function handleAuth() {
     clearErrors();
 
-    const name = document.getElementById('name') ? document.getElementById('name').value : "";
-    const emailEl = document.getElementById('email');
-    const passwordEl = document.getElementById('password');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
 
-    // ✅ SAFETY CHECK
-    if (!emailEl || !passwordEl) return;
-
-    const email = emailEl.value;
-    const password = passwordEl.value;
+    const name = nameInput ? nameInput.value : "";
+    const email = emailInput ? emailInput.value : "";
+    const password = passwordInput ? passwordInput.value : "";
 
     let isValid = true;
 
+    // Signup name validation
     if (authMode === 'signup' && !name.trim()) {
-        document.getElementById('nameError').textContent = 'Please enter your full name';
-        document.getElementById('nameError').style.display = 'block';
+        const nameError = document.getElementById('nameError');
+        if (nameError) {
+            nameError.textContent = 'Please enter your full name';
+            nameError.style.display = 'block';
+        }
         isValid = false;
     }
 
+    // Email validation
     if (!email.trim()) {
-        document.getElementById('emailError').textContent = 'Please enter your email';
-        document.getElementById('emailError').style.display = 'block';
+        const emailError = document.getElementById('emailError');
+        if (emailError) {
+            emailError.textContent = 'Please enter your email';
+            emailError.style.display = 'block';
+        }
         isValid = false;
     } else if (!validateEmail(email)) {
-        document.getElementById('emailError').textContent = 'Please enter a valid email address';
-        document.getElementById('emailError').style.display = 'block';
+        const emailError = document.getElementById('emailError');
+        if (emailError) {
+            emailError.textContent = 'Please enter a valid email address';
+            emailError.style.display = 'block';
+        }
         isValid = false;
     }
 
+    // Password validation
     if (!password) {
-        document.getElementById('passwordError').textContent = 'Please enter your password';
-        document.getElementById('passwordError').style.display = 'block';
+        const passwordError = document.getElementById('passwordError');
+        if (passwordError) {
+            passwordError.textContent = 'Please enter your password';
+            passwordError.style.display = 'block';
+        }
         isValid = false;
     } else if (!validatePassword(password)) {
-        document.getElementById('passwordError').textContent = 'Password must be at least 8 characters with one special character (!@#$%^&*)';
-        document.getElementById('passwordError').style.display = 'block';
+        const passwordError = document.getElementById('passwordError');
+        if (passwordError) {
+            passwordError.textContent =
+                'Password must be at least 8 characters with one special character (!@#$%^&*)';
+            passwordError.style.display = 'block';
+        }
         isValid = false;
     }
 
     if (!isValid) return;
 
+    // Create user object
     if (authMode === 'signup') {
         user = { name: name, email: email };
     } else {
         user = { name: email.split('@')[0], email: email };
     }
 
-    // Save user in localStorage (so it works across pages)
+    // Save user in localStorage
     localStorage.setItem("healthfitUser", JSON.stringify(user));
 
+    // Redirect to home
     window.location.href = "index.html";
 }
 
+/* Logout */
 function logout() {
     user = null;
     localStorage.removeItem("healthfitUser");
     window.location.href = "index.html";
 }
 
-// Load user if already logged in
+/* Load user on every page */
 function loadUser() {
     const saved = localStorage.getItem("healthfitUser");
+
     if (saved) {
         user = JSON.parse(saved);
 
         const userSection = document.getElementById('userSection');
         if (userSection) {
             userSection.innerHTML =
-                '<span style="color: #ff6600;">Hi, ' + user.name + '</span> ' +
-                '<button class="btn-primary" style="margin-left:10px;" onclick="logout()">Logout</button>';
+                `<span style="color: #ff6600; font-weight:bold;">Hi, ${user.name}</span>
+                 <button class="btn-primary" style="margin-left:10px;" onclick="logout()">Logout</button>`;
         }
 
         const welcomeMessage = document.getElementById('welcomeMessage');
         if (welcomeMessage) {
-            welcomeMessage.textContent = 'Welcome back, ' + user.name + '!';
+            welcomeMessage.textContent = `Welcome back, ${user.name}!`;
             welcomeMessage.style.display = 'block';
         }
     }
@@ -125,15 +152,14 @@ function loadUser() {
 
 /* BMI COLOR BASED RESULTS */
 function calculateBMI() {
-    const heightEl = document.getElementById('height');
-    const weightEl = document.getElementById('weight');
+    const heightInput = document.getElementById('height');
+    const weightInput = document.getElementById('weight');
 
-    // ✅ SAFETY CHECK (so it doesn't break on other pages)
-    if (!heightEl || !weightEl) return;
+    if (!heightInput || !weightInput) return;
 
-    const heightCm = parseFloat(heightEl.value);
+    const heightCm = parseFloat(heightInput.value);
     const heightM = heightCm / 100;
-    const weight = parseFloat(weightEl.value);
+    const weight = parseFloat(weightInput.value);
 
     if (!heightM || !weight) {
         alert('Please enter height and weight');
@@ -159,57 +185,41 @@ function calculateBMI() {
         color = '#ff3333';
     }
 
-    const bmiValueEl = document.getElementById('bmiValue');
-    const bmiCategoryEl = document.getElementById('bmiCategory');
-    const bmiResultEl = document.getElementById('bmiResult');
+    const bmiValue = document.getElementById('bmiValue');
+    const bmiCategory = document.getElementById('bmiCategory');
+    const bmiResult = document.getElementById('bmiResult');
 
-    // ✅ SAFETY CHECK
-    if (!bmiValueEl || !bmiCategoryEl || !bmiResultEl) return;
+    if (bmiValue) {
+        bmiValue.textContent = bmi;
+        bmiValue.style.color = color;
+    }
 
-    bmiValueEl.textContent = bmi;
-    bmiCategoryEl.textContent = category;
+    if (bmiCategory) {
+        bmiCategory.textContent = category;
+        bmiCategory.style.color = color;
+    }
 
-    bmiValueEl.style.color = color;
-    bmiCategoryEl.style.color = color;
-
-    bmiResultEl.classList.remove('hidden');
+    if (bmiResult) bmiResult.classList.remove('hidden');
 }
 
 /* Programs Tab Switching */
 function switchTab(event, tabName) {
-    // ✅ SAFETY CHECK (if programs elements are not present, just return)
+    const allTabs = document.querySelectorAll('.tab-btn');
+    allTabs.forEach(tab => tab.classList.remove('active'));
+
+    if (event && event.target) event.target.classList.add('active');
+
     const equipmentTab = document.getElementById('equipmentTab');
     const bodyweightTab = document.getElementById('bodyweightTab');
     const bodypartsTab = document.getElementById('bodypartsTab');
 
-    if (!equipmentTab || !bodyweightTab || !bodypartsTab) return;
+    if (equipmentTab) equipmentTab.classList.add('hidden');
+    if (bodyweightTab) bodyweightTab.classList.add('hidden');
+    if (bodypartsTab) bodypartsTab.classList.add('hidden');
 
-    const allTabs = document.querySelectorAll('.tab-btn');
-    allTabs.forEach(tab => tab.classList.remove('active'));
-
-    if (event && event.target) {
-        event.target.classList.add('active');
-    }
-
-    equipmentTab.classList.add('hidden');
-    bodyweightTab.classList.add('hidden');
-    bodypartsTab.classList.add('hidden');
-
-    const selectedTab = document.getElementById(tabName + 'Tab');
-    if (selectedTab) selectedTab.classList.remove('hidden');
+    const activeTab = document.getElementById(tabName + 'Tab');
+    if (activeTab) activeTab.classList.remove('hidden');
 }
 
-// Auto run on page load
-document.addEventListener("DOMContentLoaded", () => {
-    loadUser();
-
-    // ✅ AUTO DEFAULT TAB ONLY IF PROGRAMS PAGE HAS TABS
-    const equipmentTab = document.getElementById('equipmentTab');
-    const firstTabBtn = document.querySelector('.tab-btn');
-
-    if (equipmentTab && firstTabBtn) {
-        // Ensure Equipment tab is shown by default
-        equipmentTab.classList.remove('hidden');
-        firstTabBtn.classList.add('active');
-    }
-});
+/* Auto run on page load */
+document.addEventListener("DOMContentLoaded", loadUser);
