@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HealthFit - Home</title>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
-<!-- NAVBAR -->
 <nav class="navbar">
     <div class="logo">
         <div class="logo-icon">HF</div>
@@ -18,148 +15,39 @@
     </div>
 
     <div class="nav-links">
-        <a href="index.html" class="active-link">Home</a>
+        <a href="index.html">Home</a>
         <a href="programs.html">Programs</a>
         <a href="bmi.html">BMI</a>
         <a href="nutrition.html">Nutrition</a>
         <a href="cardio.html">Cardio</a>
 
         <div id="userSection">
-            <a class="btn-primary" href="login.html" style="text-decoration: none; display: inline-block;">
-                Login
-            </a>
+            <a class="btn-primary" href="login.html">Login</a>
         </div>
     </div>
 </nav>
 
-<!-- HOME CONTENT -->
 <div class="container">
+    <div class="hero">
+        <div>
+            <h1>Transform Your <span>Body</span></h1>
+            <p>Your journey to fitness starts here.</p>
 
-    <!-- HERO -->
-    <section class="hero hero-enhanced">
-        <div class="hero-left">
-            <h1 class="hero-title">Transform Your <span>Body</span></h1>
-            <p class="hero-subtitle">Train smart. Eat clean. Stay consistent.</p>
+            <p id="welcomeMessage"
+               style="font-size: 1.5rem; color: #ff6600; margin-bottom: 1rem; display: none;">
+            </p>
 
-            <p id="welcomeMessage" class="welcome-message"></p>
-
-            <div class="hero-buttons">
-                <a class="btn-primary" href="programs.html" style="text-decoration:none; display:inline-block;">
-                    Get Started
-                </a>
-            </div>
-
-            <div class="quote-banner">
-                <span>🔥</span> Discipline beats motivation every day.
-            </div>
+            <a class="btn-primary" href="programs.html" style="text-decoration:none; display:inline-block;">
+                Get Started
+            </a>
         </div>
 
-        <div class="hero-right">
-            <img class="hero-image-enhanced" src="images/Hero.jpeg" alt="Hero">
+        <div style="display: flex; justify-content: center;">
+            <img src="images/Hero.jpeg" alt="Hero" style="max-width:420px; width:100%;">
         </div>
-    </section>
-
-    <!-- STATS -->
-    <section class="stats-grid">
-        <div class="stat-card">
-            <h3>50+</h3>
-            <p>Workout Plans</p>
-        </div>
-        <div class="stat-card">
-            <h3>BMI</h3>
-            <p>Track Progress</p>
-        </div>
-        <div class="stat-card">
-            <h3>Nutrition</h3>
-            <p>Eat Smart</p>
-        </div>
-        <div class="stat-card">
-            <h3>Cardio</h3>
-            <p>Burn Fat</p>
-        </div>
-    </section>
-
-    <!-- WHY CHOOSE -->
-    <h2 class="section-title" style="margin-top: 4rem;">Why Choose <span>HealthFit</span>?</h2>
-
-    <section class="grid">
-        <div class="card feature-card">
-            <div class="icon">🏋️</div>
-            <h3>Workout Programs</h3>
-            <p>Equipment + Bodyweight workouts designed for strength & fitness.</p>
-        </div>
-
-        <div class="card feature-card">
-            <div class="icon">📊</div>
-            <h3>BMI Calculator</h3>
-            <p>Check your BMI instantly and understand your fitness category.</p>
-        </div>
-
-        <div class="card feature-card">
-            <div class="icon">🥗</div>
-            <h3>Nutrition Chart</h3>
-            <p>Simple nutrition table to help you eat smarter every day.</p>
-        </div>
-    </section>
-
-    <!-- CATEGORIES -->
-    <h2 class="section-title" style="margin-top: 4rem;">Workout <span>Categories</span></h2>
-
-    <section class="grid">
-        <a class="category-card" href="programs.html">
-            <h3>💪 Strength</h3>
-            <p>Chest, Back, Legs, Arms, Shoulders</p>
-        </a>
-
-        <a class="category-card" href="programs.html">
-            <h3>🏃 Bodyweight</h3>
-            <p>Push-ups, Pull-ups, Planks, Core</p>
-        </a>
-
-        <a class="category-card" href="cardio.html">
-            <h3>🔥 Cardio</h3>
-            <p>Running, Cycling, Jump Rope & more</p>
-        </a>
-
-        <a class="category-card" href="nutrition.html">
-            <h3>🍽 Nutrition</h3>
-            <p>Calories, Protein, Carbs, Fats</p>
-        </a>
-    </section>
-
+    </div>
 </div>
 
-<!-- FOOTER -->
-<footer class="footer">
-    <div class="footer-content">
-        <div>
-            <h3>Health<span style="color:#ff6600;">Fit</span></h3>
-            <p>Your fitness journey starts here. Stay strong, stay consistent.</p>
-        </div>
-
-        <div>
-            <h4>Quick Links</h4>
-            <div class="footer-links">
-                <a href="programs.html">Programs</a>
-                <a href="bmi.html">BMI</a>
-                <a href="nutrition.html">Nutrition</a>
-                <a href="cardio.html">Cardio</a>
-            </div>
-        </div>
-
-        <div>
-            <h4>Contact</h4>
-            <p>📩 support@healthfit.com</p>
-            <p>📍 India</p>
-        </div>
-    </div>
-
-    <div class="footer-bottom">
-        © 2026 HealthFit. All rights reserved.
-    </div>
-</footer>
-
-<!-- JS -->
-<script src="js/script.js"></script>
+<script src="./js/script.js"></script>
 </body>
 </html>
