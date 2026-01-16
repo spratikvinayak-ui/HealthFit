@@ -1,59 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HealthFit - Login</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HealthFit - Login</title>
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
 
 <nav class="navbar">
-    <div class="logo">
-        <div class="logo-icon">HF</div>
-        <div>Health <span>Fitness</span></div>
-    </div>
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="programs.html">Programs</a>
-        <a href="bmi.html">BMI</a>
-        <a href="nutrition.html">Nutrition</a>
-        <a href="cardio.html">Cardio</a>
-        <div id="userSection">
-            <a class="btn-primary" href="login.html">Login</a>
-        </div>
-    </div>
+  <div class="logo">
+    <div class="logo-icon">HF</div>
+    <div>Health <span>Fitness</span></div>
+  </div>
+
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="programs.html">Programs</a>
+    <a href="bmi.html">BMI</a>
+    <a href="nutrition.html">Nutrition</a>
+    <a href="cardio.html">Cardio</a>
+  </div>
 </nav>
 
-<div style="max-width: 400px; margin: 4rem auto;" class="card">
-    <h2 id="authTitle">Login</h2>
+<div style="max-width: 420px; margin: 4rem auto;" class="card">
+  <h2 id="authTitle">Login</h2>
 
-    <div class="form-group hidden" id="nameGroup">
-        <input type="text" id="name" placeholder="Full Name">
-        <div class="error" id="nameError"></div>
-    </div>
+  <div class="form-group hidden" id="nameGroup">
+    <input type="text" id="name" placeholder="Full Name">
+    <div class="error" id="nameError"></div>
+  </div>
 
-    <div class="form-group">
-        <input type="email" id="email" placeholder="Email">
-        <div class="error" id="emailError"></div>
-    </div>
+  <div class="form-group">
+    <input type="email" id="email" placeholder="Email">
+    <div class="error" id="emailError"></div>
+  </div>
 
-    <div class="form-group">
-        <input type="password" id="password" placeholder="Password">
-        <div class="error" id="passwordError"></div>
-        <small style="color: #ccc; font-size: 0.85rem; display: block; margin-top: 0.5rem;">
-            Password must be at least 8 characters with one special character (!@#$%^&*)
-        </small>
-    </div>
+  <div class="form-group">
+    <input type="password" id="password" placeholder="Password">
+    <div class="error" id="passwordError"></div>
 
-    <button class="btn-primary" style="width: 100%;" onclick="handleAuth()">Login</button>
+    <small style="color: #ccc; font-size: 0.85rem; display: block; margin-top: 0.5rem;">
+      Password must be at least 8 characters with one special character (!@#$%^&*)
+    </small>
+  </div>
 
-    <p style="text-align: center; margin-top: 1rem; color: #ccc;">
-        <span id="authSwitchText">Need an account?</span>
-        <button style="color: #ff6600; background: none; border: none; cursor: pointer;" onclick="toggleAuthMode()">Sign Up</button>
-    </p>
+  <button class="btn-primary" style="width: 100%;" onclick="handleAuth()">Login</button>
+
+  <p style="text-align: center; margin-top: 1rem; color: #ccc;">
+    <span id="authSwitchText">Need an account?</span>
+    <button style="color: #ff6600; background: none; border: none; cursor: pointer;" onclick="toggleAuthMode()">Sign Up</button>
+  </p>
 </div>
 
-<script src="js/script.js"></script>
+<script src="./script.js"></script>
 </body>
 </html>
