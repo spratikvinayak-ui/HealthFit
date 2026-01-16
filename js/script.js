@@ -81,9 +81,7 @@ function handleAuth() {
         user = { name: email.split('@')[0], email: email };
     }
 
-    // Save user in localStorage (so it works across pages)
     localStorage.setItem("healthfitUser", JSON.stringify(user));
-
     window.location.href = "index.html";
 }
 
@@ -93,7 +91,6 @@ function logout() {
     window.location.href = "index.html";
 }
 
-// Load user if already logged in
 function loadUser() {
     const saved = localStorage.getItem("healthfitUser");
     if (saved) {
@@ -114,45 +111,6 @@ function loadUser() {
     }
 }
 
-/* BMI COLOR BASED RESULTS */
-function calculateBMI() {
-    const heightCm = parseFloat(document.getElementById('height').value);
-    const heightM = heightCm / 100;
-    const weight = parseFloat(document.getElementById('weight').value);
-
-    if (!heightM || !weight) {
-        alert('Please enter height and weight');
-        return;
-    }
-
-    const bmi = (weight / (heightM * heightM)).toFixed(1);
-
-    let category;
-    let color;
-
-    if (bmi < 18.5) {
-        category = 'Underweight';
-        color = '#00bfff';
-    } else if (bmi < 25) {
-        category = 'Normal';
-        color = '#00cc66';
-    } else if (bmi < 30) {
-        category = 'Overweight';
-        color = '#ffcc00';
-    } else {
-        category = 'Obese';
-        color = '#ff3333';
-    }
-
-    document.getElementById('bmiValue').textContent = bmi;
-    document.getElementById('bmiCategory').textContent = category;
-
-    document.getElementById('bmiValue').style.color = color;
-    document.getElementById('bmiCategory').style.color = color;
-
-    document.getElementById('bmiResult').classList.remove('hidden');
-}
-
 /* Programs Tab Switching */
 function switchTab(event, tabName) {
     const allTabs = document.querySelectorAll('.tab-btn');
@@ -167,5 +125,4 @@ function switchTab(event, tabName) {
     document.getElementById(tabName + 'Tab').classList.remove('hidden');
 }
 
-// Auto run on page load
 document.addEventListener("DOMContentLoaded", loadUser);
