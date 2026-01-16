@@ -169,3 +169,19 @@ function switchTab(event, tabName) {
 
 // Auto run on page load
 document.addEventListener("DOMContentLoaded", loadUser);
+function searchPrograms() {
+    const searchValue = document.getElementById("programSearch").value.toLowerCase();
+
+    // Only search inside equipment + bodyweight cards
+    const programCards = document.querySelectorAll("#equipmentTab .card, #bodyweightTab .card");
+
+    programCards.forEach(card => {
+        const title = card.querySelector("h3").innerText.toLowerCase();
+
+        if (title.includes(searchValue)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
