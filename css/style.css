@@ -1,4 +1,4 @@
-/* ===== Reset ===== */
+/* ===== Global Reset ===== */
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +12,7 @@ body {
     min-height: 100vh;
 }
 
-/* ===== Navbar ===== */
+/* ===== Navigation ===== */
 .navbar {
     background: #000;
     border-bottom: 2px solid #ff6600;
@@ -58,6 +58,7 @@ body {
 .nav-links a {
     text-decoration: none;
     color: #fff;
+    cursor: pointer;
     font-size: 1rem;
     padding: 0.5rem 1rem;
     transition: 0.3s ease;
@@ -95,7 +96,7 @@ body {
     display: none;
 }
 
-/* ===== Grid & Cards ===== */
+/* ===== Reusable Components ===== */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -116,7 +117,7 @@ body {
     margin-bottom: 2rem;
 }
 
-/* ===== Hero ===== */
+/* ===== Home Page ===== */
 .hero {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -136,6 +137,60 @@ body {
     margin-bottom: 2rem;
 }
 
+/* ===== Forms ===== */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 1rem;
+    background: #1a1a1a;
+    border: 1px solid #444;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.error {
+    color: #ff6600;
+    font-size: 0.85rem;
+    display: none;
+    margin-top: 0.5rem;
+}
+
+/* ===== BMI Calculator ===== */
+.result-box {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: #1a1a1a;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.result-value {
+    font-size: 3rem;
+    color: #ff6600;
+    font-weight: bold;
+}
+
+/* ===== Nutrition Table ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #ff6600;
+    padding: 1rem;
+    text-align: left;
+}
+
+td {
+    padding: 1rem;
+    border-bottom: 1px solid #444;
+}
+
 /* ===== Programs Tabs ===== */
 .tabs {
     display: flex;
@@ -153,7 +208,7 @@ body {
     color: #fff;
     cursor: pointer;
     font-weight: bold;
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .tab-btn:hover {
@@ -177,7 +232,7 @@ body {
     min-height: 430px;
     overflow: hidden;
     padding: 0;
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 #programs .card:hover {
@@ -190,14 +245,17 @@ body {
     width: 100%;
     height: 260px;
     overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 #programs .card-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     display: block;
-    transition: 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 #programs .card:hover .card-img img {
@@ -213,6 +271,12 @@ body {
 #programs .card h3 {
     padding-top: 1.5rem;
     margin-bottom: 0.5rem;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+#programs .card:hover h3 {
+    color: #ff6600;
 }
 
 #programs .card p {
@@ -238,4 +302,115 @@ body {
 
 .badge-bodyweight {
     background: #00cc66;
+}
+
+/* ===== Exercise Lists ===== */
+.exercise-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.exercise-item {
+    background: #1a1a1a;
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.exercise-item:hover {
+    background: #2a2a2a;
+    transform: translateX(10px);
+    border-color: #ff6600;
+}
+
+.exercise-icon {
+    width: 60px;
+    height: 60px;
+    background: #333;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: #ff6600;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.exercise-item:hover .exercise-icon {
+    background: #ff6600;
+    color: #fff;
+    transform: rotate(360deg);
+}
+
+.exercise-item h4 {
+    margin-bottom: 0.3rem;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.exercise-item:hover h4 {
+    color: #ff6600;
+}
+
+/* ===== Body Parts Section Cards ===== */
+#bodypartsTab .card {
+    width: 100%;
+    background: #2b2b2b;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid #ff6600;
+    padding: 2rem;
+}
+
+#bodypartsTab .card:hover {
+    border-color: #ff8533;
+    box-shadow: 0 5px 20px rgba(255, 102, 0, 0.3);
+}
+
+/* ===== Cardio Page Cards ===== */
+#cardio .card {
+    width: 320px;
+    background: #2b2b2b;
+    border-radius: 18px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+#cardio .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(255, 102, 0, 0.4);
+    border-color: #ff8533;
+}
+
+#cardio .program-image {
+    width: 100%;
+    height: 480px;
+    background: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: #ff6600;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+#cardio .program-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+#cardio .card:hover .program-image img {
+    transform: scale(1.05);
 }
