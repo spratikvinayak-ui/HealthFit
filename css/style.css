@@ -601,3 +601,38 @@ td { padding: 1rem; border-bottom: 1px solid #444; }
     font-size: 1rem;
     margin-bottom: 0.7rem;
 }
+/* ===== Programs Page Improvements ===== */
+
+/* Better tab style */
+.tabs {
+    gap: 0.8rem;
+}
+
+.tab-btn {
+    border: 2px solid rgba(255, 102, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    transform: translateY(-3px);
+    border-color: #ff6600;
+}
+
+.tab-btn.active {
+    background: #ff6600;
+    border-color: #ff6600;
+    box-shadow: 0 8px 20px rgba(255, 102, 0, 0.25);
+}
+
+/* Fix grid alignment for program cards */
+#programs .grid {
+    justify-items: center;
+}
+
+/* Make sets & reps look highlighted */
+#programs .card p {
+    font-size: 1rem;
+    color: #ffcc99;
+    font-weight: bold;
+    margin-bottom: 0.8rem;
+}
