@@ -597,3 +597,7 @@ td { padding: 1rem; border-bottom: 1px solid #444; }
     border-top: 1px solid #222;
     font-size: 0.9rem;
 }
+#programs .card p {
+    font-size: 1rem;
+    margin-bottom: 0.7rem;
+}
